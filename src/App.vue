@@ -15,7 +15,7 @@ export default {
     }
   },
   computed: mapState ({
-    count(state) {
+    count: state => {
       return state.count
      },
     count2 : 'count',
