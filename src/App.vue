@@ -1,7 +1,10 @@
 <template>
   <div id="app">
+    <h2>
+      {{ todosCount}}
+    </h2>
       <ul>
-        <li v-for="todo in doneTodos" :key="todo">
+        <li v-for="todo in todos" :key="todo">
           {{ todo.text }}
         </li>
       </ul>
@@ -9,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
@@ -18,10 +21,9 @@ export default {
       num: 10
     }
   },
-  computed: mapState ({
-    doneTodos () {
-      return this.$store.getters.doneTodos
-    }
+  computed: mapGetters ({
+    todos: 'doneTodos',
+    todosCount: 'doneTodosCount'
   })
 }
 </script>
