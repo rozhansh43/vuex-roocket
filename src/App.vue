@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <h1>{{ count }}</h1>
+      <h1>{{ localCount }}</h1>
   </div>
 </template>
 
@@ -9,9 +9,19 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      num: 10
+    }
+  },
   computed: mapState ({
-    count: state => state.count,
+    count(state) {
+      return state.count
+     },
     count2 : 'count',
+    localCount (state) {
+      return state.count + this.num
+    }
   })
 }
 </script>
