@@ -10,7 +10,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'app',
   computed: mapState ({
-    count: 'count'
+    count: state => state.count,
+    count2 : 'count',
   })
 }
 </script>
