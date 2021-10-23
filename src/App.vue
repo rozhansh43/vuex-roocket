@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-      <h1>{{ localCount }}</h1>
+      <ul>
+        <li v-for="todo in doneTodos" :key="todo">
+          {{ todo.text }}
+        </li>
+      </ul>
   </div>
 </template>
 
@@ -15,12 +19,8 @@ export default {
     }
   },
   computed: mapState ({
-    count: state => {
-      return state.count
-     },
-    count2 : 'count',
-    localCount (state) {
-      return state.count + this.num
+    doneTodos () {
+      return this.$store.getters.doneTodos
     }
   })
 }
